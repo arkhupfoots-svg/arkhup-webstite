@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARKHUP | Precision Foot Health Technology</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">ARK<span>H</span>UP</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#solutions">Solutions</a></li>
+    <li><a href="#technology">Technology</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book Foot Scan</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+
+  <!-- Animated Foot SVG -->
+  <svg class="hero-scan-visual" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="heatGrad" cx="50%" cy="60%">
+        <stop offset="0%" stop-color="#FF4500" stop-opacity="0.9"/>
+        <stop offset="30%" stop-color="#FF8C00" stop-opacity="0.7"/>
+        <stop offset="60%" stop-color="#FFD700" stop-opacity="0.5"/>
+        <stop offset="100%" stop-color="#00BFFF" stop-opacity="0.2"/>
+      </radialGradient>
+      <filter id="blur"><feGaussianBlur stdDeviation="12"/></filter>
+      <filter id="blur2"><feGaussianBlur stdDeviation="6"/></filter>
+    </defs>
+    <!-- Foot outline -->
+    <path d="M230 420 C160 420 130 380 120 340 C110 300 115 260 120 220 C125 180 130 150 140 120 C150 90 165 70 180 60 C195 50 215 48 230 50 C245 48 265 50 280 60 C295 70 310 90 320 120 C330 150 335 180 340 220 C345 260 350 300 340 340 C330 380 300 420 230 420Z" stroke="#C9A66B" stroke-width="1.5" fill="rgba(201,166,107,0.05)"/>
+    <!-- Heat zones -->
+    <ellipse cx="200" cy="380" rx="40" ry="30" fill="url(#heatGrad)" filter="url(#blur)" opacity="0.8"/>
+    <ellipse cx="260" cy="375" rx="30" ry="22" fill="url(#heatGrad)" filter="url(#blur)" opacity="0.7"/>
+    <ellipse cx="170" cy="300" rx="25" ry="20" fill="#FF8C00" filter="url(#blur)" opacity="0.5"/>
+    <ellipse cx="230" cy="150" rx="35" ry="28" fill="#FFD700" filter="url(#blur)" opacity="0.4"/>
+    <!-- Toe zones -->
+    <circle cx="175" cy="80" r="18" fill="#00BFFF" filter="url(#blur2)" opacity="0.5"/>
+    <circle cx="200" cy="68" r="20" fill="#1E90FF" filter="url(#blur2)" opacity="0.5"/>
+    <circle cx="228" cy="62" r="22" fill="#4169E1" filter="url(#blur2)" opacity="0.5"/>
+    <circle cx="257" cy="68" r="18" fill="#1E90FF" filter="url(#blur2)" opacity="0.4"/>
+    <circle cx="280" cy="80" r="14" fill="#00BFFF" filter="url(#blur2)" opacity="0.4"/>
+    <!-- Scan line animation -->
+    <line x1="110" y1="250" x2="350" y2="250" stroke="#C9A66B" stroke-width="1" opacity="0.6">
+      <animate attributeName="y1" from="50" to="430" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="y2" from="50" to="430" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.8;0" dur="3s" repeatCount="indefinite"/>
+    </line>
+    <!-- Grid lines -->
+    <line x1="110" y1="150" x2="350" y2="150" stroke="#C9A66B" stroke-width="0.3" stroke-dasharray="4,8" opacity="0.3"/>
+    <line x1="110" y1="200" x2="350" y2="200" stroke="#C9A66B" stroke-width="0.3" stroke-dasharray="4,8" opacity="0.3"/>
+    <line x1="110" y1="250" x2="350" y2="250" stroke="#C9A66B" stroke-width="0.3" stroke-dasharray="4,8" opacity="0.3"/>
+    <line x1="110" y1="300" x2="350" y2="300" stroke="#C9A66B" stroke-width="0.3" stroke-dasharray="4,8" opacity="0.3"/>
+    <line x1="110" y1="350" x2="350" y2="350" stroke="#C9A66B" stroke-width="0.3" stroke-dasharray="4,8" opacity="0.3"/>
+    <line x1="170" y1="50" x2="170" y2="430" stroke="#C9A66B" stroke-width="0.3" stroke-dasharray="4,8" opacity="0.3"/>
+    <line x1="230" y1="50" x2="230" y2="430" stroke="#C9A66B" stroke-width="0.3" stroke-dasharray="4,8" opacity="0.3"/>
+    <line x1="290" y1="50" x2="290" y2="430" stroke="#C9A66B" stroke-width="0.3" stroke-dasharray="4,8" opacity="0.3"/>
+  </svg>
+
+  <div class="hero-content">
+    <div class="hero-badge reveal">Precision Foot Health Technology</div>
+    <h1 class="reveal reveal-delay-1">Walk<br><em>Better.</em><br>Live Better.</h1>
+    <p class="hero-sub reveal reveal-delay-2">Every foot is unique. Through advanced pressure analysis and 3D scanning technology, Arkhup creates personalized footwear and orthotic solutions engineered specifically for you.</p>
+    <div class="hero-btns reveal reveal-delay-3">
+      <a href="#contact" class="btn-primary">Book Foot Scan</a>
+      <a href="#solutions" class="btn-outline">Explore Solutions</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    Scroll to Explore
+  </div>
+</section>
+
+<!-- TRUST BANNER -->
+<div class="trust-banner">
+  <div class="trust-item">Advanced Foot Scanning</div>
+  <div class="trust-item">Personalized Solutions</div>
+  <div class="trust-item">Arch Support Experts</div>
+  <div class="trust-item">Data-Driven Footwear</div>
+  <div class="trust-item">Comfort-Focused Design</div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about">
+    <div class="about-visual reveal">
+      <div class="about-visual-inner"></div>
+      <svg class="heatmap-svg" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="h1" cx="45%" cy="75%"><stop offset="0%" stop-color="#FF2200" stop-opacity="0.9"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+          <radialGradient id="h2" cx="60%" cy="73%"><stop offset="0%" stop-color="#FF6600" stop-opacity="0.8"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+          <radialGradient id="h3" cx="38%" cy="58%"><stop offset="0%" stop-color="#FF9900" stop-opacity="0.7"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+          <radialGradient id="h4" cx="55%" cy="28%"><stop offset="0%" stop-color="#FFCC00" stop-opacity="0.6"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+          <filter id="gblur"><feGaussianBlur stdDeviation="18"/></filter>
+        </defs>
+        <path d="M200 470 C130 470 95 425 82 378 C68 330 72 280 78 235 C84 190 90 158 102 125 C114 92 132 68 152 55 C172 42 198 40 210 40 C222 40 248 42 268 55 C288 68 306 92 318 125 C330 158 336 190 342 235 C348 280 352 330 338 378 C325 425 270 470 200 470Z" stroke="#C9A66B" stroke-width="2" fill="rgba(10,10,10,0.2)"/>
+        <rect x="0" y="0" width="400" height="500" fill="url(#h1)" filter="url(#gblur)"/>
+        <rect x="0" y="0" width="400" height="500" fill="url(#h2)" filter="url(#gblur)"/>
+        <rect x="0" y="0" width="400" height="500" fill="url(#h3)" filter="url(#gblur)"/>
+        <rect x="0" y="0" width="400" height="500" fill="url(#h4)" filter="url(#gblur)"/>
+        <text x="85" y="400" fill="#FF2200" font-size="10" font-family="Inter" opacity="0.7">HIGH</text>
+        <text x="120" y="340" fill="#FF9900" font-size="10" font-family="Inter" opacity="0.7">MED</text>
+        <text x="200" y="150" fill="#FFCC00" font-size="10" font-family="Inter" opacity="0.7">LOW</text>
+        <line x1="60" y1="250" x2="340" y2="250" stroke="#C9A66B" stroke-width="1" stroke-dasharray="3,6" opacity="0.3"/>
+        <line x1="200" y1="40" x2="200" y2="470" stroke="#C9A66B" stroke-width="1" stroke-dasharray="3,6" opacity="0.3"/>
+      </svg>
+      <div class="about-corner tl"></div>
+      <div class="about-corner br"></div>
+      <div class="about-tag">
+        <div class="about-tag-num">52</div>
+        <div class="about-tag-label">Pressure Points Mapped</div>
+      </div>
+    </div>
+    <div class="about-content">
+      <div class="section-label reveal">Our Story</div>
+      <h2 class="reveal reveal-delay-1">No Two Feet Are <em>Alike.</em></h2>
+      <p class="reveal reveal-delay-2">At Arkhup, we believe every person deserves footwear engineered precisely for their unique anatomy. Our technology-driven approach combines biomechanics, pressure analysis, and customized design.</p>
+      <p class="reveal reveal-delay-3">We help working professionals, athletes, diabetic patients, and senior citizens walk with greater comfort, confidence, and long-term support — backed by science.</p>
+      <div class="about-stats">
+        <div class="reveal reveal-delay-1">
+          <div class="stat-num">3D</div>
+          <div class="stat-label">Foot Scanning</div>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <div class="stat-num">52+</div>
+          <div class="stat-label">Pressure Points</div>
+        </div>
+        <div class="reveal reveal-delay-3">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Custom Fit</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="process" id="process">
+  <div class="process-header">
+    <div class="section-label reveal" style="justify-content:center">The Process</div>
+    <h2 class="reveal reveal-delay-1">From Scan to <em>Comfort</em></h2>
+  </div>
+  <div class="process-steps">
+    <div class="step reveal">
+      <div class="step-num">01</div>
+      <div class="step-icon">📊</div>
+      <h3>Pressure Analysis</h3>
+      <p>Advanced sensors measure pressure distribution across 52+ points, identifying stress zones and gait irregularities with clinical precision.</p>
+    </div>
+    <div class="step reveal reveal-delay-1">
+      <div class="step-num">02</div>
+      <div class="step-icon">📡</div>
+      <h3>3D Foot Scanning</h3>
+      <p>High-resolution 3D imaging captures every contour of your foot — arch height, width, volume, and dimensional geometry.</p>
+    </div>
+    <div class="step reveal reveal-delay-2">
+      <div class="step-num">03</div>
+      <div class="step-icon">⚙️</div>
+      <h3>Customized Design</h3>
+      <p>Your scan data drives the creation of personalized insoles and footwear, engineered to your exact biomechanical profile.</p>
+    </div>
+    <div class="step reveal reveal-delay-3">
+      <div class="step-num">04</div>
+      <div class="step-icon">✦</div>
+      <h3>Comfort Delivered</h3>
+      <p>Experience measurably improved support, reduced pain, and enhanced mobility — comfort that's precision-crafted for you.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TECHNOLOGY -->
+<section class="tech" id="technology">
+  <div class="tech-bg"></div>
+  <div class="tech-inner">
+    <div class="tech-content">
+      <div class="section-label reveal">Our Technology</div>
+      <h2 class="reveal reveal-delay-1">Designed Using <em>Data.</em><br>Crafted For Comfort.</h2>
+      <p class="reveal reveal-delay-2">Every solution begins with precision measurement. Our proprietary scanning platform generates a comprehensive biomechanical profile that guides every design decision.</p>
+      <div class="tech-features">
+        <div class="tech-feat reveal reveal-delay-2">
+          <div class="tech-feat-icon">🔥</div>
+          <div>
+            <div class="tech-feat-title">Pressure Heatmapping</div>
+            <div class="tech-feat-desc">Visualize exactly where stress concentrates across your foot during standing and walking.</div>
+          </div>
+        </div>
+        <div class="tech-feat reveal reveal-delay-3">
+          <div class="tech-feat-icon">📐</div>
+          <div>
+            <div class="tech-feat-title">3D Dimensional Capture</div>
+            <div class="tech-feat-desc">Sub-millimeter accuracy in capturing arch geometry, toe alignment, and heel curvature.</div>
+          </div>
+        </div>
+        <div class="tech-feat reveal reveal-delay-4">
+          <div class="tech-feat-icon">🧬</div>
+          <div>
+            <div class="tech-feat-title">Biomechanical Analysis</div>
+            <div class="tech-feat-desc">Gait assessment and postural evaluation combined with foot morphology data.</div>
+          </div>
+        </div>
+        <div class="tech-feat reveal reveal-delay-5">
+          <div class="tech-feat-icon">🛠</div>
+          <div>
+            <div class="tech-feat-title">Precision Manufacturing</div>
+            <div class="tech-feat-desc">Custom orthotic insoles crafted to exact specifications using premium medical-grade materials.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tech-visual reveal reveal-delay-2">
+      <div class="pressure-map">
+        <div class="pressure-scan-line"></div>
+        <div class="pressure-map-label">LIVE SCAN — ACTIVE</div>
+        <svg viewBox="0 0 300 380" xmlns="http://www.w3.org/2000/svg" style="width:75%;height:75%">
+          <defs>
+            <radialGradient id="p1" cx="42%" cy="78%"><stop offset="0%" stop-color="#FF1A00" stop-opacity="0.95"/><stop offset="60%" stop-color="#FF6600" stop-opacity="0.5"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+            <radialGradient id="p2" cx="58%" cy="76%"><stop offset="0%" stop-color="#FF4400" stop-opacity="0.85"/><stop offset="60%" stop-color="#FF8800" stop-opacity="0.4"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+            <radialGradient id="p3" cx="35%" cy="55%"><stop offset="0%" stop-color="#FF8800" stop-opacity="0.7"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+            <radialGradient id="p4" cx="50%" cy="22%"><stop offset="0%" stop-color="#88CCFF" stop-opacity="0.6"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+            <filter id="f1"><feGaussianBlur stdDeviation="14"/></filter>
+          </defs>
+          <path d="M150 358 C95 358 65 320 54 282 C42 244 46 204 52 168 C58 132 65 108 76 82 C88 58 103 40 120 30 C136 20 154 18 162 18 C170 18 188 20 204 30 C221 40 236 58 248 82 C259 108 266 132 272 168 C278 204 282 244 270 282 C259 320 205 358 150 358Z" stroke="#C9A66B" stroke-width="1.5" fill="rgba(201,166,107,0.04)"/>
+          <rect x="0" y="0" width="300" height="380" fill="url(#p1)" filter="url(#f1)"/>
+          <rect x="0" y="0" width="300" height="380" fill="url(#p2)" filter="url(#f1)"/>
+          <rect x="0" y="0" width="300" height="380" fill="url(#p3)" filter="url(#f1)"/>
+          <rect x="0" y="0" width="300" height="380" fill="url(#p4)" filter="url(#f1)"/>
+          <!-- Toes -->
+          <circle cx="118" cy="32" r="13" fill="#4488FF" opacity="0.5" filter="url(#f1)"/>
+          <circle cx="140" cy="22" r="15" fill="#3377FF" opacity="0.5" filter="url(#f1)"/>
+          <circle cx="163" cy="18" r="16" fill="#2266FF" opacity="0.55" filter="url(#f1)"/>
+          <circle cx="185" cy="22" r="13" fill="#3377FF" opacity="0.45" filter="url(#f1)"/>
+          <circle cx="203" cy="32" r="11" fill="#4488FF" opacity="0.4" filter="url(#f1)"/>
+          <!-- crosshair -->
+          <circle cx="150" cy="295" r="20" fill="none" stroke="#FF1A00" stroke-width="1" opacity="0.6"/>
+          <line x1="130" y1="295" x2="170" y2="295" stroke="#FF1A00" stroke-width="0.7" opacity="0.5"/>
+          <line x1="150" y1="275" x2="150" y2="315" stroke="#FF1A00" stroke-width="0.7" opacity="0.5"/>
+          <text x="172" y="299" fill="#FF4400" font-size="8" font-family="Inter" opacity="0.8">MAX</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTIONS -->
+<section class="solutions" id="solutions">
+  <div class="solutions-header">
+    <div class="section-label reveal" style="justify-content:center">What We Offer</div>
+    <h2 class="reveal reveal-delay-1">Our <em>Solutions</em></h2>
+    <p class="reveal reveal-delay-2">Comprehensive foot health solutions designed for every lifestyle and medical requirement.</p>
+  </div>
+  <div class="solutions-grid">
+    <div class="sol-card reveal">
+      <span class="sol-icon">🦶</span>
+      <h3>Custom Insoles</h3>
+      <p>Personalized orthotic insoles designed from your pressure map and 3D scan data for exact anatomical support.</p>
+      <div class="sol-arrow">→</div>
+    </div>
+    <div class="sol-card reveal reveal-delay-1">
+      <span class="sol-icon">👟</span>
+      <h3>Orthotic Footwear</h3>
+      <p>Footwear engineered with built-in biomechanical support for daily comfort and long-term joint protection.</p>
+      <div class="sol-arrow">→</div>
+    </div>
+    <div class="sol-card reveal reveal-delay-2">
+      <span class="sol-icon">🏗</span>
+      <h3>Arch Support Solutions</h3>
+      <p>Targeted arch support that enhances balance, improves posture, and redistributes ground reaction forces.</p>
+      <div class="sol-arrow">→</div>
+    </div>
+    <div class="sol-card reveal reveal-delay-3">
+      <span class="sol-icon">💊</span>
+      <h3>Diabetic Foot Care</h3>
+      <p>Protective, pressure-relieving solutions designed to safeguard sensitive diabetic feet from ulceration and injury.</p>
+      <div class="sol-arrow">→</div>
+    </div>
+    <div class="sol-card reveal reveal-delay-4">
+      <span class="sol-icon">⚡</span>
+      <h3>Sports Performance</h3>
+      <p>High-performance insoles for athletes optimizing energy return, stability, and injury prevention during training.</p>
+      <div class="sol-arrow">→</div>
+    </div>
+    <div class="sol-card reveal reveal-delay-5">
+      <span class="sol-icon">💼</span>
+      <h3>Workplace Comfort</h3>
+      <p>Specialized solutions for professionals who stand for extended hours, reducing fatigue and chronic foot pain.</p>
+      <div class="sol-arrow">→</div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits">
+  <div class="benefits-inner">
+    <div class="benefits-left">
+      <div class="section-label reveal">Why It Matters</div>
+      <h2 class="reveal reveal-delay-1">Measurable <em>Benefits</em> You'll Feel Every Step</h2>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card reveal">
+        <div class="benefit-icon">🎯</div>
+        <div class="benefit-title">Reduce Foot Pain</div>
+        <div class="benefit-desc">Targeted pressure relief eliminates chronic pain points with clinical precision.</div>
+      </div>
+      <div class="benefit-card reveal reveal-delay-1">
+        <div class="benefit-icon">🚶</div>
+        <div class="benefit-title">Improve Walking Comfort</div>
+        <div class="benefit-desc">Every step becomes effortless with support calibrated to your exact anatomy.</div>
+      </div>
+      <div class="benefit-card reveal reveal-delay-2">
+        <div class="benefit-icon">🧍</div>
+        <div class="benefit-title">Support Better Posture</div>
+        <div class="benefit-desc">Proper foot alignment cascades upward to improve knee, hip, and spinal posture.</div>
+      </div>
+      <div class="benefit-card reveal reveal-delay-3">
+        <div class="benefit-icon">⚖️</div>
+        <div class="benefit-title">Balance Pressure</div>
+        <div class="benefit-desc">Even distribution of force across the entire plantar surface reduces hotspots.</div>
+      </div>
+      <div class="benefit-card reveal reveal-delay-4">
+        <div class="benefit-icon">📈</div>
+        <div class="benefit-title">Increase Mobility</div>
+        <div class="benefit-desc">Greater comfort directly translates to increased daily activity and quality of life.</div>
+      </div>
+      <div class="benefit-card reveal reveal-delay-5">
+        <div class="benefit-icon">🛡</div>
+        <div class="benefit-title">Prevent Future Issues</div>
+        <div class="benefit-desc">Correct biomechanical imbalances early before they progress to chronic conditions.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY ARKHUP -->
+<section class="why" id="why">
+  <div class="why-inner">
+    <div class="why-content">
+      <div class="section-label reveal">Why Arkhup</div>
+      <h2 class="reveal reveal-delay-1">Because Every Foot Deserves a <em>Custom</em> Solution.</h2>
+      <ul class="why-list">
+        <li class="reveal reveal-delay-1">Personalized Assessment — no generic sizing</li>
+        <li class="reveal reveal-delay-2">Scientific, Biomechanics-Based Approach</li>
+        <li class="reveal reveal-delay-3">Advanced 3D & Pressure Technology</li>
+        <li class="reveal reveal-delay-4">Premium Medical-Grade Materials</li>
+        <li class="reveal reveal-delay-5">Expert Guidance at Every Step</li>
+        <li class="reveal reveal-delay-6">Long-Term Comfort Guarantee</li>
+      </ul>
+    </div>
+    <div class="why-visual reveal reveal-delay-2">
+      <div class="why-visual-inner">ARK<br>HUP</div>
+      <div class="why-stat-overlay">
+        <div class="why-stat-big">100%</div>
+        <div class="why-stat-label">Custom. Precision. Personal.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="test-header">
+    <div class="section-label reveal" style="justify-content:center">Real Stories</div>
+    <h2 class="reveal reveal-delay-1">What Our <em>Clients</em> Say</h2>
+  </div>
+  <div class="test-grid">
+    <div class="test-card reveal">
+      <div class="test-stars">★★★★★</div>
+      <div class="test-quote">"</div>
+      <p class="test-text">After years of heel pain that no insole could fix, Arkhup's custom orthotic literally changed how I walk. The pressure scan revealed exactly where my issues were. I feel the difference every single day.</p>
+      <div class="test-author">
+        <div class="test-avatar">R</div>
+        <div>
+          <div class="test-name">Rajesh Kumar</div>
+          <div class="test-role">IT Professional, Coimbatore</div>
+        </div>
+      </div>
+    </div>
+    <div class="test-card reveal reveal-delay-1">
+      <div class="test-stars">★★★★★</div>
+      <div class="test-quote">"</div>
+      <p class="test-text">As a diabetic patient, I was always worried about foot ulcers. Arkhup's protective insoles have given me confidence to walk freely. The team explained everything clearly and the results speak for themselves.</p>
+      <div class="test-author">
+        <div class="test-avatar">S</div>
+        <div>
+          <div class="test-name">Sumathi Devi</div>
+          <div class="test-role">Retired Teacher, Coimbatore</div>
+        </div>
+      </div>
+    </div>
+    <div class="test-card reveal reveal-delay-2">
+      <div class="test-stars">★★★★★</div>
+      <div class="test-quote">"</div>
+      <p class="test-text">I run 40km weekly and was suffering from plantar fasciitis. The 3D scan showed exactly what was wrong. My custom insoles have eliminated the pain and improved my race times. Incredible technology.</p>
+      <div class="test-author">
+        <div class="test-avatar">A</div>
+        <div>
+          <div class="test-name">Arun Prasath</div>
+          <div class="test-role">Marathon Runner</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="faq-inner">
+    <div class="faq-left">
+      <div class="section-label reveal">Common Questions</div>
+      <h2 class="reveal reveal-delay-1">Frequently <em>Asked</em></h2>
+      <p class="reveal reveal-delay-2">Everything you need to know before your first appointment with us.</p>
+    </div>
+    <div class="faq-items reveal reveal-delay-1">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How does the foot scanning process work?
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-a">Our scanning process takes approximately 15–20 minutes. You stand on our pressure plate while sensors map 52+ pressure points across your foot. A 3D scanner then captures precise dimensional data. You'll receive a full report of your foot health profile on the same visit.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How long does it take to receive my custom insoles?
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-a">Standard delivery is 5–7 working days after your scan. Express options are available. We'll keep you updated throughout the manufacturing process.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Are your solutions suitable for diabetic patients?
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-a">Absolutely. We have a dedicated diabetic foot care programme. Our orthotics are crafted from extra-depth, pressure-redistributing materials clinically proven to reduce ulceration risk and protect neuropathic feet.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Can custom insoles fit into my existing shoes?
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-a">Yes. We design insoles to fit standard shoe profiles. We'll assess your footwear during the consultation and ensure compatibility. Many clients use their custom insoles across multiple pairs of shoes.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Is there a warranty on custom insoles?
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-a">All our custom insoles come with a 12-month warranty against manufacturing defects. We also offer a comfort review at 6 weeks — if adjustments are needed, we make them at no extra charge.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Do you offer follow-up support after purchase?
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-a">Yes — we provide complimentary follow-up assessments at 6 weeks and 6 months. Our team is available via WhatsApp for any questions during your adjustment period.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta" id="contact">
+  <div class="cta-bg"></div>
+  <div class="cta-lines"></div>
+  <div class="final-cta-inner">
+    <div class="section-label reveal" style="justify-content:center">Take The First Step</div>
+    <h2 class="reveal reveal-delay-1">Your Feet Carry You<br><em>Every Day.</em></h2>
+    <p class="reveal reveal-delay-2">Give them the precision support they deserve. Book your comprehensive foot scan today — and walk into a more comfortable life.</p>
+    <div class="cta-gold-line reveal reveal-delay-3"></div>
+    <a href="https://wa.me/917845688950" class="btn-primary reveal reveal-delay-3" style="font-size:13px; padding:18px 50px;">Book Your Foot Scan Today</a>
+    <div class="reveal reveal-delay-4" style="margin-top:30px; font-size:12px; color:var(--grey); letter-spacing:2px;">COIMBATORE, TAMIL NADU &nbsp;&bull;&nbsp; +91 78456 88950 &nbsp;&bull;&nbsp; hello@arkhup.in &nbsp;&bull;&nbsp; @arkhup_cbe</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name">ARK<span>H</span>UP</div>
+      <div class="footer-brand-tamil">ஆர்க்கப்</div>
+      <p class="footer-brand-desc">Customized Footwear &amp; Orthotic Solutions. Precision foot health technology for a more comfortable life.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Solutions</h4>
+      <ul class="footer-links">
+        <li><a href="#">Custom Insoles</a></li>
+        <li><a href="#">Orthotic Footwear</a></li>
+        <li><a href="#">Arch Support</a></li>
+        <li><a href="#">Diabetic Foot Care</a></li>
+        <li><a href="#">Sports Performance</a></li>
+        <li><a href="#">Workplace Comfort</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul class="footer-links">
+        <li><a href="#">About Arkhup</a></li>
+        <li><a href="#">Technology</a></li>
+        <li><a href="#">Our Process</a></li>
+        <li><a href="#">Testimonials</a></li>
+        <li><a href="#">Book Appointment</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="footer-contact-item">
+        <div class="footer-contact-icon">📍</div>
+        <div class="footer-contact-text">Coimbatore, Tamil Nadu, India</div>
+      </div>
+      <div class="footer-contact-item">
+        <div class="footer-contact-icon">📞</div>
+        <div class="footer-contact-text">+91 78456 88950</div>
+      </div>
+      <div class="footer-contact-item">
+        <div class="footer-contact-icon">✉</div>
+        <div class="footer-contact-text">hello@arkhup.in</div>
+      </div>
+      <div class="footer-contact-item">
+        <div class="footer-contact-icon">📸</div>
+        <div class="footer-contact-text">@arkhup_cbe</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 <span>ARKHUP</span> · All rights reserved · Precision Foot Health Technology</p>
+    <div class="social-links">
+      <a href="#" title="Instagram">📸</a>
+      <a href="#" title="WhatsApp">💬</a>
+      <a href="#" title="Facebook">f</a>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp Button -->
+<a href="https://wa.me/917845688950" class="whatsapp-btn" title="Chat on WhatsApp">💬</a>
+
+<script>
+  // Custom Cursor
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx - 5 + 'px'; cursor.style.top = my - 5 + 'px'; });
+  function animRing() {
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    ring.style.left = rx - 18 + 'px';
+    ring.style.top = ry - 18 + 'px';
+    requestAnimationFrame(animRing);
+  }
+  animRing();
+  document.querySelectorAll('a,button,.sol-card,.tech-feat,.benefit-card,.test-card,.why-list li,.faq-q').forEach(el => {
+    el.addEventListener('mouseenter', () => { ring.style.width = '56px'; ring.style.height = '56px'; ring.style.borderColor = 'rgba(201,166,107,0.8)'; ring.style.marginLeft = '-10px'; ring.style.marginTop = '-10px'; });
+    el.addEventListener('mouseleave', () => { ring.style.width = '36px'; ring.style.height = '36px'; ring.style.borderColor = 'rgba(201,166,107,0.5)'; ring.style.marginLeft = '0'; ring.style.marginTop = '0'; });
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // FAQ accordion
+  function toggleFaq(btn) {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Parallax hero visual
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    const hv = document.querySelector('.hero-scan-visual');
+    if (hv) hv.style.transform = `translateY(calc(-50% + ${y * 0.15}px))`;
+  });
+</script>
+  <script src="script.js"></script>
+</body>
+</html>
